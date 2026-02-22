@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react"
+  },
+  "references": [
+    { "path": "./app.json" },
+    { "path": "./node.json" }
+  ],
+  "exclude": ["node_modules", "dist", "build", "coverage"]
+}

@@ -2,6 +2,11 @@
 
 This Turborepo starter is maintained by the Turborepo core team.
 
+## To run micro with shell
+```sh
+npm run micro
+```
+
 ## Using this example
 
 Run the following command:
