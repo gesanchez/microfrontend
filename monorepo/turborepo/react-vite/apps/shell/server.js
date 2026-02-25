@@ -51,11 +51,22 @@ app.use('*all', async (req, res) => {
       render = (await import('./dist/server/entry-server.js')).render
     }
 
-    const rendered = await render(req, url)
+    let config = [];
+    try {
+      const response = await fetch('http://localhost:5005/api/config/mfes');
+      if (response.ok) {
+        config = await response.json();
+      }
+    } catch (e) {
+      console.error('Failed to fetch MFE config:', e.message);
+    }
+
+    const rendered = await render(req, url, config)
 
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
+      .replace(`<!--app-config-->`, `<script>window.__CONFIG__ = ${JSON.stringify(config)}</script>`)
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {

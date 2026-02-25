@@ -1,11 +1,20 @@
 import { StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
-import App from './App'
+import { RouterProvider, createBrowserRouter } from 'react-router'
+import { routes } from './components/Router'
+import { ConfigProvider } from './context/ConfigContext'
 import './index.css'
 
+const router = createBrowserRouter(routes);
+
+// @ts-ignore
+const config = window.__CONFIG__ || { mfes: [] };
+
 hydrateRoot(
-  document.getElementById('root'),
+  document.getElementById('root')!,
   <StrictMode>
-    <App />
+    <ConfigProvider config={{ mfes: config }}>
+      <RouterProvider router={router} />
+    </ConfigProvider>
   </StrictMode>,
 )

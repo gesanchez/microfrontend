@@ -1,15 +1,26 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { Button } from '@repo/ui/button';
+import { useEffect } from 'react';
+import { navigateTo } from '@repo/utilities/navigation';
 
 function App() {
-  const redirect = (path: string) => {
-    if (typeof window !== 'undefined') {
-      window.location.href = path;
-    }
-  };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleNavigation = (event: Event) => {
+      const customEvent = event as CustomEvent<string>;
+      if (customEvent.detail) {
+        navigate(customEvent.detail);
+      }
+    };
+
+    window.addEventListener('shell:navigate', handleNavigation);
+    return () => window.removeEventListener('shell:navigate', handleNavigation);
+  }, [navigate]);
+
   return (
     <>
       <div>
@@ -21,8 +32,8 @@ function App() {
         </a>
       </div>
       <ul>
-        <li><Button onClick={() => redirect('/')}>Home</Button></li>
-        <li><Button onClick={() => redirect('/dashboard')}>Dashboard</Button></li>
+        <li><Button onClick={() => navigateTo('/')}>Home</Button></li>
+        <li><Button onClick={() => navigateTo('/dashboard')}>Dashboard</Button></li>
       </ul>      
       <Outlet />
     </>

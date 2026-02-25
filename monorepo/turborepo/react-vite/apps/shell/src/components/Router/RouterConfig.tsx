@@ -1,11 +1,10 @@
-import { createBrowserRouter } from "react-router";
 import { DynamicRemoteApp } from "@/components/DinamicComponent";
 import { Home } from "@/pages/Home";
 import { Suspense } from "react";
 import App from "@/App";
 import { default as ErrorComponent } from "@/components/ErrorComponent";
 
-export const RouterConfig = createBrowserRouter([
+export const routes = [
   {
     path: "/",
     Component: App,
@@ -26,4 +25,4 @@ export const RouterConfig = createBrowserRouter([
       },
     ],
   },
-]);
+];

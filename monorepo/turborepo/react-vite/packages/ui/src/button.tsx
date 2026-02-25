@@ -16,7 +16,7 @@ export const Button = ({
   return (
     <button
       type={type}
-      className={`px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 bg-sky-500 hover:bg-sky-700 transition-colors duration-200 ${className}`}
+      className={`px-4 py-2 rounded bg-deep-space text-white hover:bg-blue-green transition-colors duration-200 font-medium ${className}`}
       onClick={onClick}
     >
       {children}

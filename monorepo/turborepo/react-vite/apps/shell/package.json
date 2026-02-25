@@ -17,6 +17,8 @@
     "@repo/typescript-config": "*",
     "@repo/tailwind-config": "*",
     "compression": "^1.8.0",
+    "@repo/ui": "*",
+    "@repo/utilities": "*",
     "express": "^5.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

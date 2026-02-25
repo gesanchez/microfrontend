@@ -15,9 +15,12 @@
     "@repo/tailwind-config": "*",
     "@repo/typescript-config": "*",
     "@repo/ui": "*",
+    "@repo/utilities": "*",
     "@tailwindcss/cli": "^4.1.5",
     "@tailwindcss/postcss": "^4.1.5",
     "autoprefixer": "^10.4.20",
+    "lucide-react": "^0.575.0",
+    "ofetch": "^1.5.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.5"
