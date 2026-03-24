@@ -1,0 +1,20 @@
+{
+  "account": {
+    "listTitle": "Account Management",
+    "listSubtitle": "Manage and monitor all your linked accounts",
+    "newAccount": "New Account",
+    "added": "Added",
+    "noAccounts": "No accounts found",
+    "getStarted": "Get started by creating your first account",
+    "createTitle": "New Account",
+    "createSubtitle": "Fill in the details for the new user",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "shortBio": "Short Bio",
+    "cancel": "Cancel",
+    "createAction": "Create Account",
+    "placeholderName": "John Doe",
+    "placeholderEmail": "john@example.com",
+    "placeholderBio": "Tell us a bit about this user..."
+  }
+}

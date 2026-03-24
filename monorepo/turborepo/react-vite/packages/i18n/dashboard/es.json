@@ -1,0 +1,24 @@
+{
+  "dashboard": {
+    "title": "Resumen Operativo",
+    "subtitle": "Métricas de rendimiento en tiempo real",
+    "refresh": "Actualizar",
+    "back": "Volver al Inicio",
+    "errorLoading": "Error al cargar datos del tablero. ¿La API está funcionando?",
+    "totalUsers": "Usuarios Totales",
+    "trendUsers": "+12% del mes pasado",
+    "activeSessions": "Sesiones Activas",
+    "trendSessions": "Estable",
+    "estRevenue": "Ingreso Mensual Estimado",
+    "trendRevenue": "+5.4% semana a semana",
+    "revenueTrends": "Tendencias de Ingresos",
+    "revenueTitle": "Ingresos por Mes (Datos Creados)",
+    "noData": "No hay datos disponibles",
+    "systemHealth": "Estado del Sistema",
+    "systemOperational": "Todos los sistemas operacionales",
+    "apiResponse": "Tiempo de Respuesta API",
+    "memoryUsage": "Uso de Memoria",
+    "overallPerformance": "Rendimiento General",
+    "high": "Alto"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "dashboard": {
+    "title": "Operational Overview",
+    "subtitle": "Real-time performance metrics",
+    "refresh": "Refresh",
+    "back": "Back to Home",
+    "errorLoading": "Failed to load dashboard data. Is the API running?",
+    "totalUsers": "Total Users",
+    "trendUsers": "+12% from last month",
+    "activeSessions": "Active Sessions",
+    "trendSessions": "Stable",
+    "estRevenue": "Est. Monthly Revenue",
+    "trendRevenue": "+5.4% week over week",
+    "revenueTrends": "Revenue Trends",
+    "revenueTitle": "Revenue per Month (Dummy Data)",
+    "noData": "No data available",
+    "systemHealth": "System Health",
+    "systemOperational": "All systems operational",
+    "apiResponse": "API Response Time",
+    "memoryUsage": "Memory Usage",
+    "overallPerformance": "Overall Performance",
+    "high": "High"
+  }
+}

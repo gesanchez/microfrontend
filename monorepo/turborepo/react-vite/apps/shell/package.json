@@ -14,16 +14,20 @@
   },
   "dependencies": {
     "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
     "@repo/tailwind-config": "*",
-    "compression": "^1.8.0",
+    "@repo/typescript-config": "*",
     "@repo/ui": "*",
     "@repo/utilities": "*",
+    "compression": "^1.8.0",
     "express": "^5.1.0",
+    "i18next": "^25.10.9",
+    "lucide-react": "^0.577.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-i18next": "^16.6.6",
     "react-router": "^7.9.5",
-    "sirv": "^3.0.1"
+    "sirv": "^3.0.1",
+    "@repo/i18n": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
@@ -32,17 +36,17 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "install": "^0.13.0",
     "npm": "^11.6.2",
+    "tailwindcss": "^4.1.5",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4",
-    "vite-tsconfig-paths": "^5.1.4",
-    "autoprefixer": "^10.4.20",
-    "tailwindcss": "^4.1.5"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

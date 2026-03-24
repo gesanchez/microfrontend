@@ -14,7 +14,13 @@ export default defineConfig({
       name: 'app',
       remotes: {
       },
-      shared: ['react','react-dom']
+      shared: [
+        'react', 
+        'react-dom', 
+        'react-router',
+        'i18next',
+        'react-i18next'
+      ]
     })
   ],
   server: {

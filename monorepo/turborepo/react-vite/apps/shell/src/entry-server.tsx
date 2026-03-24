@@ -5,12 +5,13 @@ import {
   createStaticRouter, 
   StaticRouterProvider 
 } from 'react-router'
-import { routes } from './components/Router'
+import { getRoutes } from './components/Router/RouterConfig';
 import { ConfigProvider, MfeConfig } from './context/ConfigContext'
 import './global.css';
 
 export async function render(_req: any, _url: string, mfes: MfeConfig[]) {
-  const { query } = createStaticHandler(routes);
+  const dynamicRoutes = getRoutes(mfes);
+  const { query } = createStaticHandler(dynamicRoutes);
   
   const url = new URL(_req.originalUrl || _req.url, `http://${_req.headers.host || 'localhost'}`);
   const request = new Request(url.href, {
@@ -24,7 +25,7 @@ export async function render(_req: any, _url: string, mfes: MfeConfig[]) {
     return { html: null };
   }
 
-  const router = createStaticRouter(routes, context);
+  const router = createStaticRouter(dynamicRoutes, context);
 
   const html = renderToString(
     <StrictMode>

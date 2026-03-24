@@ -4,6 +4,10 @@ export interface MfeConfig {
   name: string;
   url: string;
   template: string;
+  module: string;
+  route: string;
+  icon?: string;
+  label?: string;
 }
 
 interface ConfigContextType {

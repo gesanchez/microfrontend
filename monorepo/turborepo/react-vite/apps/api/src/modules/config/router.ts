@@ -8,7 +8,19 @@ router.get('/mfes', (req, res) => {
       name: 'dashboard',
       module: './Dashboard',
       url: 'http://localhost:5001/assets/remoteEntry.js',
-      template: 'standard',
+      template: 'main',
+      route: '/dashboard',
+      icon: 'LayoutDashboard',
+      label: 'Dashboard',
+    },
+    {
+      name: 'account',
+      module: './Account',
+      url: 'http://localhost:5002/assets/remoteEntry.js',
+      template: 'main',
+      route: '/dashboard/account',
+      icon: 'UserCircle',
+      label: 'Manage Account',
     },
   ]);
 });

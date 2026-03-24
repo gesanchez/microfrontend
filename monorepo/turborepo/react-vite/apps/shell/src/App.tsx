@@ -1,10 +1,5 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Outlet, useNavigate } from "react-router";
-import { Button } from '@repo/ui/button';
+import { useNavigate } from "react-router";
 import { useEffect } from 'react';
-import { navigateTo } from '@repo/utilities/navigation';
 
 function App() {
   const navigate = useNavigate();
@@ -21,23 +16,7 @@ function App() {
     return () => window.removeEventListener('shell:navigate', handleNavigation);
   }, [navigate]);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <ul>
-        <li><Button onClick={() => navigateTo('/')}>Home</Button></li>
-        <li><Button onClick={() => navigateTo('/dashboard')}>Dashboard</Button></li>
-      </ul>      
-      <Outlet />
-    </>
-  )
+  return <></>;
 }
 
 export default App

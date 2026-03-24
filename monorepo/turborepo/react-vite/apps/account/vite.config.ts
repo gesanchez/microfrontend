@@ -6,17 +6,17 @@ import federation from "@originjs/vite-plugin-federation";
 // https://vite.dev/config/
 export default defineConfig({
   server: {
-    port: 5172,
+    port: 5173,
   },
   plugins: [
     react(),
     federation({
-      name: "dashboard",
+      name: "account",
       filename: "remoteEntry.js",
       exposes: {
-        "./Dashboard": {
+        "./Account": {
           import: "./src/App.tsx",
-          name: "Dashboard",
+          name: "Account",
           dontAppendStylesToHead: false
         },
       },
@@ -35,7 +35,7 @@ export default defineConfig({
     cssCodeSplit: true,
   },
   preview: {
-    port: 5001,
+    port: 5002,
     strictPort: true,
     cors: true,
   }

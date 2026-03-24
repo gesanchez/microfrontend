@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ofetch } from 'ofetch'
 import { Button } from '@repo/ui/button'
 import { Card } from '@repo/ui/card'
@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   RefreshCw
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import './App.css'
 
 interface DashboardData {
@@ -20,12 +21,13 @@ interface DashboardData {
   activeSessions: number;
 }
 
-function App() {
+export default function App() {
+  const { t } = useTranslation();
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchData = async (signal?: AbortSignal) => {
+  const fetchData = useCallback(async (signal?: AbortSignal) => {
     setLoading(true);
     try {
       const response = await ofetch<DashboardData>('http://localhost:5005/api/dashboard', {
@@ -36,33 +38,33 @@ function App() {
     } catch (err: any) {
       if (err.name === 'AbortError') return;
       console.error('Error fetching dashboard data:', err);
-      setError('Failed to load dashboard data. Is the API running?');
+      setError(t('dashboard.errorLoading'));
     } finally {
       setLoading(false);
     }
-  };
+  }, [t]);
 
   useEffect(() => {
     const controller = new AbortController();
     fetchData(controller.signal);
     return () => controller.abort();
-  }, []);
+  }, [fetchData]);
 
   return (
-    <div className="dashboard-mfe p-6 min-h-screen bg-gray-50 text-deep-space">
+    <div className="dashboard-mfe p-6 min-h-screen bg-gray-50 text-deep-space">      
       <header className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-deep-space">Operational Overview</h1>
-          <p className="text-blue-green">Real-time performance metrics</p>
+          <h1 className="text-3xl font-bold text-deep-space">{t('dashboard.title')}</h1>
+          <p className="text-blue-green">{t('dashboard.subtitle')}</p>
         </div>
         <div className="flex gap-4">
           <Button onClick={() => fetchData()} className="flex items-center gap-2 bg-blue-green">
             <RefreshCw size={18} className={loading ? 'animate-spin' : ''} />
-            Refresh
+            {t('dashboard.refresh')}
           </Button>
           <Button onClick={() => navigateTo('/')} className="flex items-center gap-2 bg-tiger-orange border-none">
             <ArrowLeft size={18} />
-            Back to Home
+            {t('dashboard.back')}
           </Button>
         </div>
       </header>
@@ -77,9 +79,9 @@ function App() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <Card className="hover:ring-2 hover:ring-sky-blue transition-all">
           <SimpleStat 
-            label="Total Users" 
+            label={t('dashboard.totalUsers')} 
             value={data?.users || '---'} 
-            trend="+12% from last month" 
+            trend={t('dashboard.trendUsers')} 
             trendType="up" 
           />
           <div className="mt-4 p-2 bg-sky-blue/10 rounded-full w-fit">
@@ -89,9 +91,9 @@ function App() {
         
         <Card className="hover:ring-2 hover:ring-amber-flame transition-all">
           <SimpleStat 
-            label="Active Sessions" 
+            label={t('dashboard.activeSessions')} 
             value={data?.activeSessions || '---'} 
-            trend="Stable" 
+            trend={t('dashboard.trendSessions')} 
             trendType="neutral" 
           />
           <div className="mt-4 p-2 bg-amber-flame/10 rounded-full w-fit">
@@ -101,9 +103,9 @@ function App() {
 
         <Card className="hover:ring-2 hover:ring-blue-green transition-all">
           <SimpleStat 
-            label="Est. Monthly Revenue" 
-            value={`$${data?.revenue.reduce((acc, curr) => acc + curr.value, 0).toLocaleString() || '---'}`} 
-            trend="+5.4% week over week" 
+            label={t('dashboard.estRevenue')} 
+            value={`$${data?.revenue?.reduce((acc, curr) => acc + curr.value, 0).toLocaleString() || '---'}`} 
+            trend={t('dashboard.trendRevenue')} 
             trendType="up" 
           />
           <div className="mt-4 p-2 bg-blue-green/10 rounded-full w-fit">
@@ -113,10 +115,10 @@ function App() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card header="Revenue Trends" className="h-full">
-          <ChartContainer title="Revenue per Month (Dummy Data)">
+        <Card header={t('dashboard.revenueTrends')} className="h-full">
+          <ChartContainer title={t('dashboard.revenueTitle')}>
             <div className="flex items-end gap-3 w-full px-4 h-40">
-              {data?.revenue.map((item, idx) => (
+              {data?.revenue?.map((item, idx) => (
                 <div key={idx} className="flex-1 flex flex-col items-center gap-2">
                   <div 
                     className="w-full bg-blue-green rounded-t-sm transition-all hover:bg-tiger-orange" 
@@ -125,15 +127,15 @@ function App() {
                   <span className="text-[10px] text-gray-400 font-medium rotate-45">{item.month}</span>
                 </div>
               ))}
-              {!data && <div className="text-gray-400 italic">No data available</div>}
+              {!data && <div className="text-gray-400 italic">{t('dashboard.noData')}</div>}
             </div>
           </ChartContainer>
         </Card>
 
-        <Card header="System Health" footer="All systems operational">
+        <Card header={t('dashboard.systemHealth')} footer={t('dashboard.systemOperational')}>
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">API Response Time</span>
+              <span className="text-sm font-medium">{t('dashboard.apiResponse')}</span>
               <span className="text-xs font-bold px-2 py-1 bg-green-100 text-green-700 rounded">24ms</span>
             </div>
             <div className="w-full bg-gray-100 rounded-full h-2">
@@ -141,7 +143,7 @@ function App() {
             </div>
             
             <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">Memory Usage</span>
+              <span className="text-sm font-medium">{t('dashboard.memoryUsage')}</span>
               <span className="text-xs font-bold px-2 py-1 bg-amber-100 text-amber-700 rounded">42%</span>
             </div>
             <div className="w-full bg-gray-100 rounded-full h-2">
@@ -151,9 +153,9 @@ function App() {
             <div className="flex justify-between items-center pt-4 border-t border-gray-50">
               <div className="flex items-center gap-2 text-sm text-blue-green">
                 <TrendingUp size={16} />
-                <span>Overall Performance</span>
+                <span>{t('dashboard.overallPerformance')}</span>
               </div>
-              <span className="font-bold text-deep-space">High</span>
+              <span className="font-bold text-deep-space">{t('dashboard.high')}</span>
             </div>
           </div>
         </Card>
@@ -161,5 +163,3 @@ function App() {
     </div>
   )
 }
-
-export default App
