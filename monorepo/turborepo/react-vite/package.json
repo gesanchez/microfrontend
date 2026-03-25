@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "micro": "turbo run micro",
+    "build:ssr": "turbo run micro --filter=shell --filter=dashboard --filter=account --filter=@repo/ui --filter=api",
     "build:ssg": "turbo run micro --filter=shell-ssg --filter=dashboard --filter=account --filter=@repo/ui --filter=api",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
