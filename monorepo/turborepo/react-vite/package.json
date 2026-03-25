@@ -5,6 +5,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "micro": "turbo run micro",
+    "build:ssg": "turbo run micro --filter=shell-ssg --filter=dashboard --filter=account --filter=@repo/ui --filter=api",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"

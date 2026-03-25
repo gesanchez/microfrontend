@@ -1,16 +1,16 @@
 {
-  "name": "shell",
+  "name": "shell-ssg",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node server",
-    "micro": "node server",
-    "build": "npm run build:client && npm run build:server",
+    "dev": "vite",
+    "micro": "npm run build && npm run preview",
+    "build": "npm run build:client && npm run build:server && node prerender.js",
     "build:client": "tsc -b && vite build --outDir dist/client",
     "build:server": "tsc -b && vite build --ssr src/entry-server.tsx --outDir dist/server",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "sirv dist/client --port 5174 --cors"
   },
   "dependencies": {
     "@repo/eslint-config": "*",
@@ -47,7 +47,6 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4",
-    "vite-tsconfig-paths": "^5.1.4",
-    "@repo/vite-config": "*"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

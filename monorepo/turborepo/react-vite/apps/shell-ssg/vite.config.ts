@@ -31,13 +31,12 @@ export default defineConfig(({ isSsrBuild }) => ({
       clientFiles: ['./src/entry-client.tsx'],
       ssrFiles: ['./src/entry-server.tsx'],
     },
-    port: 5172,
+    port: 5174,
   },
   build: {
     modulePreload: false,
     target: 'esnext',
     minify: false,
     ssrManifest: true,
-    ssr: true,
   },
 }))
