@@ -1,0 +1,3 @@
+/* Dashboard specific styles */
+@import "tailwindcss";
+@import "@repo/ui/styles.css";

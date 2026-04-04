@@ -1,0 +1,14 @@
+@theme {
+  --color-sky-blue: #8ecae6;
+  --color-blue-green: #219ebc;
+  --color-deep-space: #023047;
+  --color-amber-flame: #ffb703;
+  --color-tiger-orange: #fb8500;
+
+  /* Semantic aliases */
+  --color-primary: var(--color-deep-space);
+  --color-secondary: var(--color-blue-green);
+  --color-accent: var(--color-tiger-orange);
+  --color-info: var(--color-sky-blue);
+  --color-warning: var(--color-amber-flame);
+}

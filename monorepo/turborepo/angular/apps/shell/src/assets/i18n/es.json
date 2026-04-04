@@ -1,0 +1,12 @@
+{
+  "shell": {
+    "title": "MicroFrontend Shell",
+    "mainMenu": "Menú Principal",
+    "helpSupport": "Ayuda y Soporte",
+    "guestName": "Usuario Invitado",
+    "guestEmail": "invitado@ejemplo.com",
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "signOut": "Cerrar sesión"
+  }
+}

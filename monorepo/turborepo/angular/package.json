@@ -1,0 +1,27 @@
+{
+  "name": "angular-monorepo",
+  "private": true,
+  "packageManager": "npm@9.8.1",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "build:ssr": "turbo run build:ssr --filter=shell --filter=dashboard --filter=account --filter=@repo/ui --filter=api && npm run serve:ssg -w shell",
+    "build:ssg": "turbo run build:ssg --filter=shell --filter=dashboard --filter=account --filter=@repo/ui --filter=api && npm run serve:ssg -w shell",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md,html,css}\"",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.5",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

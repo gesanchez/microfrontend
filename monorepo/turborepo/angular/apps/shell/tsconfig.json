@@ -1,0 +1,19 @@
+{
+  "extends": "../../packages/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "baseUrl": "./",
+    "types": ["node"],
+    "paths": {
+      "@repo/ui/*": ["../../packages/ui/src/*"],
+      "@repo/utilities": ["../../packages/utilities/src/index.ts"],
+      "@repo/i18n": ["../../packages/i18n/index.ts"]
+    }
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.spec.json" }
+  ]
+}

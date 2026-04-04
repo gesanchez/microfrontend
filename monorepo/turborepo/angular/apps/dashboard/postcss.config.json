@@ -1,0 +1,9 @@
+{
+  "plugins": {
+    "@tailwindcss/postcss": {},
+    "postcss-prefix-selector": {
+      "prefix": ".dashboard-mfe",
+      "exclude": ["html", "body", "*:where(:not(html, body, .dashboard-mfe *))"]
+    }
+  }
+}

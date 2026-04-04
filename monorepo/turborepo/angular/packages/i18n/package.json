@@ -1,0 +1,19 @@
+{
+  "name": "@repo/i18n",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./shell/*.json": "./shell/*.json",
+    "./dashboard/*.json": "./dashboard/*.json",
+    "./account/*.json": "./account/*.json"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "typescript": "5.8.3"
+  }
+}

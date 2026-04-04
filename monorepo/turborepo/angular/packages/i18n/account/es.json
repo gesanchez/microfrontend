@@ -1,0 +1,20 @@
+{
+  "account": {
+    "listTitle": "Gestión de Cuentas",
+    "listSubtitle": "Administra y monitorea todas tus cuentas vinculadas",
+    "newAccount": "Nueva Cuenta",
+    "added": "Agregado",
+    "noAccounts": "No se encontraron cuentas",
+    "getStarted": "Comienza creando tu primera cuenta",
+    "createTitle": "Nueva Cuenta",
+    "createSubtitle": "Completa los detalles para el nuevo usuario",
+    "fullName": "Nombre Completo",
+    "email": "Correo Electrónico",
+    "shortBio": "Biografía Corta",
+    "cancel": "Cancelar",
+    "createAction": "Crear Cuenta",
+    "placeholderName": "Juan Pérez",
+    "placeholderEmail": "juan@ejemplo.com",
+    "placeholderBio": "Cuéntanos un poco sobre este usuario..."
+  }
+}
