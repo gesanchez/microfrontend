@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import { Icon } from "@repo/ui/Icon";
+import { Button } from "@repo/ui/button";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -61,12 +62,13 @@ export const Login = () => {
               <a href="#" className="font-bold text-blue-600 hover:text-blue-700 transition-colors">Forgot password?</a>
             </div>
 
-            <button
+            <Button
               type="submit"
-              className="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-2xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+              variant="default"
+              size="full-size"
             >
               Sign In
-            </button>
+            </Button>
           </form>
 
           <p className="text-center text-gray-500 text-sm">

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Icon } from "@repo/ui/Icon";
+import { Button } from "@repo/ui/button";
 
 interface CreateAccountProps {
   onCreate: (data: any) => void;
@@ -22,12 +23,13 @@ export const CreateAccount = ({ onCreate }: CreateAccountProps) => {
     <div className="max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
       <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 space-y-8">
         <header className="flex items-center gap-4">
-          <button 
+          <Button 
             onClick={() => navigate('..')}
-            className="p-2 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all"
+            variant="outline"
+            size="icon-sm"
           >
             <Icon name="ArrowLeft" size={24} />
-          </button>
+          </Button>
           <div>
             <h1 className="text-2xl font-bold text-gray-900">{t('account.createTitle')}</h1>
             <p className="text-gray-500 font-medium text-sm">{t('account.createSubtitle')}</p>
@@ -71,19 +73,19 @@ export const CreateAccount = ({ onCreate }: CreateAccountProps) => {
           </div>
 
           <div className="flex justify-end gap-3 pt-4">
-            <button 
+            <Button 
               type="button"
               onClick={() => navigate('..')}
-              className="px-6 py-3 bg-white hover:bg-gray-50 text-gray-600 font-bold rounded-xl transition-all border border-gray-200"
+              variant="outline"
             >
               {t('account.cancel')}
-            </button>
-            <button 
+            </Button>
+            <Button 
               type="submit"
-              className="px-8 py-3 bg-gray-900 hover:bg-black text-white font-bold rounded-xl transition-all shadow-lg shadow-gray-200"
+              variant="secondary"
             >
               {t('account.createAction')}
-            </button>
+            </Button>
           </div>
         </form>
       </div>

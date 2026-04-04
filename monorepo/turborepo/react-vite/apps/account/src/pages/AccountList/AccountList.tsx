@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Icon } from "@repo/ui/Icon";
+import { Button } from "@repo/ui/button";
 
 interface AccountListProps {
   accounts: any[];
@@ -18,13 +19,13 @@ export const AccountList = ({ accounts, onDelete }: AccountListProps) => {
           <h1 className="text-2xl font-bold text-gray-900">{t('account.listTitle')}</h1>
           <p className="text-gray-500 font-medium">{t('account.listSubtitle')}</p>
         </div>
-        <button 
+        <Button 
           onClick={() => navigate('new')}
-          className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all transform hover:-translate-y-0.5 shadow-md shadow-blue-200 flex items-center gap-2"
+          variant="default"
         >
           <Icon name="Plus" size={20} />
           {t('account.newAccount')}
-        </button>
+        </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
